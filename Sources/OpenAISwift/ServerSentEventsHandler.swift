@@ -20,6 +20,15 @@ class ServerSentEventsHandler: NSObject {
     private var task: URLSessionDataTask?
        
     func connect(with request: URLRequest) {
+        /**
+         The `URLSessionConfiguration.default` property returns the default session configuration object.
+         
+         The default session configuration uses the global singleton credential, cache, and cookie storage objects. It also uses the default `URLCache` object, which is a memory-only cache with no disk storage.
+         
+         You can use this configuration object as a starting point and customize it further to meet your specific needs.
+         
+         - Note: This property is defined in the `URLSessionConfiguration` class.
+         */
         let config = URLSessionConfiguration.default
         config.timeoutIntervalForRequest = 300
         session = URLSession(configuration: config, delegate: self, delegateQueue: nil)
